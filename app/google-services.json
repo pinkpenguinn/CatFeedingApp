@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "556471806324",
+    "firebase_url": "https://catfeedingproject.firebaseio.com",
+    "project_id": "catfeedingproject",
+    "storage_bucket": "catfeedingproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556471806324:android:9034b652761938d9d5a421",
+        "android_client_info": {
+          "package_name": "com.example.catfeedingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556471806324-e70k9qb14mb8o1lijaupj1h7oudegigj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrirjOBvW1ufWGHgUfMycwMhVlxeBSJW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556471806324-e70k9qb14mb8o1lijaupj1h7oudegigj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
