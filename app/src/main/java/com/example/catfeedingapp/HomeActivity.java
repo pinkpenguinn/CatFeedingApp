@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeActivity extends AppCompatActivity {
     Button logOutButton;
     Button goToMapView;
+    Button scsMainPage;
     FirebaseAuth firebaseAuthorization;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private boolean mLocationPositionAccessable = false;
@@ -22,6 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         logOutButton = findViewById(R.id.logOutButton);
         goToMapView = findViewById(R.id.mapView);
+        scsMainPage = findViewById(R.id.scsButton);
 
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +39,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent toMapView = new Intent(HomeActivity.this, MapsActivity.class);
                 startActivity(toMapView);
+            }
+        });
+
+        scsMainPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toScsPage = new Intent(HomeActivity.this, scsActivity.class);
+                startActivity(toScsPage);
             }
         });
     }
