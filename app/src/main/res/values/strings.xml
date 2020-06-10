@@ -11,10 +11,11 @@
     <string name="tab_text_2">View Notes</string>
     <string name="tab_text_3">Add Notes</string>
     <string name="IntroToSCS"><![CDATA[The Stray Cat Sterilisation Programme is a new collaborative venture between the SPCA and AVS (Animal & Veterinary Service) which aims to further reduce the number of stray cats in Housing and Development Board (HDB) estates]]></string>
-    <string name="InfoForFeeders">Community cat feeders can contact the SPCA at 62875355 (extension 14) to make an appointment.
+    <string name="InfoForFeeders">Community cat feeders can contact the SPCA at <b>62875355</b> (extension 14) to make an appointment.
         \n\n
         Please have the following information ready when you call:
-        \n\n Full name, address, NRIC/ FIN number and contact number of community caregiver
-        \n\n Number of cats needing to be sterilised
-        \n\n The sex of each cat \n The area (neighbourhood) where the cat is from</string>
+        \n\n <b>Full name</b>, <b>address</b>, <b>NRIC/ FIN</b> number and <b>contact number</b> of community caregiver
+        \n\n <b>Number</b> of cats needing to be sterilised
+        \n\n The sex of each cat
+        \n\n The <b>area (neighbourhood)</b> where the cat is from</string>
 </resources>

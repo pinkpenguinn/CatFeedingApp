@@ -26,7 +26,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:paddingBottom="5dp"
         android:text="Stray Cat Sterilisation Programme"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
+
         android:text="What is the Stray Cat Sterilisation Programme?"
         android:textAlignment="center"
         android:textStyle="bold" />
@@ -45,6 +46,7 @@
         android:id="@+id/scsIntro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="@string/IntroToSCS"
         android:layout_below="@+id/scsIntroTitle"
          />
@@ -54,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/scsIntro"
-
+        android:paddingBottom="5dp"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/stray_cat_sleeping_street_136346_412" />
 
@@ -64,16 +66,26 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/sleepingCatImg"
         android:text="What Community Cat Feeders can do to Help"
-        android:textStyle="bold"
-         />
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_below="@+id/instructionTitle"
             android:text="@string/InfoForFeeders"
             />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Instructions"
+        android:text="Swipe Right to Record New Cases and Take Part"
+        android:paddingTop="5dp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        />
 
 
 </RelativeLayout>
