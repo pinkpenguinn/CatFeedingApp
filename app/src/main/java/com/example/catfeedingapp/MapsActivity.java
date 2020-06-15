@@ -65,6 +65,8 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         if (ActivityCompat.checkSelfPermission(MapsActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
+            getLocationUpdates();
+            readChanges ();
 
         }
 
@@ -73,9 +75,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
                     44);
         }
 
-        getLocationUpdates();
 
-        readChanges ();
 
 
     }
