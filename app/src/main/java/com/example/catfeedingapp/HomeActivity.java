@@ -13,6 +13,7 @@ public class HomeActivity extends AppCompatActivity {
     Button logOutButton;
     Button goToMapView;
     Button scsMainPage;
+    Button toPhotoAlbum;
     FirebaseAuth firebaseAuthorization;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private boolean mLocationPositionAccessable = false;
@@ -49,5 +50,15 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(toScsPage);
             }
         });
+
+        toPhotoAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toPhotoAlbum = new Intent(HomeActivity.this, PhotoActivity.class);
+                startActivity(toPhotoAlbum);
+            }
+        });
+
+
     }
 }
