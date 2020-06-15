@@ -31,7 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MapsActivity extends FragmentActivity implements LocationListener {
+public class MapsActivity extends FragmentActivity implements LocationListener, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
     FusedLocationProviderClient client;
@@ -48,6 +48,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        FirebaseDatabase.getInstance().getReference().setValue("Please work");
 
 
         reference = FirebaseDatabase.getInstance().getReference().child("User 1");
@@ -139,15 +140,18 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
                     mapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
+                            mMap = googleMap;
                             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 
 
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-                            googleMap.setMinZoomPreference(12);
-                            googleMap.getUiSettings().setZoomControlsEnabled(true);
-                            googleMap.getUiSettings().setAllGesturesEnabled(true);
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                            mMap.setMinZoomPreference(12);
+                            mMap.getUiSettings().setZoomControlsEnabled(true);
+                            mMap.getUiSettings().setAllGesturesEnabled(true);
 
-                            marker = googleMap.addMarker(new MarkerOptions().position(latLng).title("You are here!"));
+                            marker = mMap.addMarker(new MarkerOptions().position(latLng).title("You are here!"));
+
+                            mMap.setOnMapLongClickListener(MapsActivity.this);
 
                         }
                     });
@@ -195,6 +199,12 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
 
     @Override
     public void onProviderDisabled(String provider) {
+
+    }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        mMap.addMarker(new MarkerOptions().position(latLng));
 
     }
 }
