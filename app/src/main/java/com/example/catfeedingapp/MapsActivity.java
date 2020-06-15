@@ -1,16 +1,21 @@
 package com.example.catfeedingapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -32,9 +37,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class MapsActivity extends FragmentActivity implements LocationListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerDragListener {
 
@@ -47,6 +57,12 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     private final int MIN_DISTANCE = 1;
     Marker marker;
     private Geocoder geocoder;
+
+
+
+
+
+
 
 
     @Override
@@ -82,6 +98,12 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
 
         getLocationUpdates();
         readChanges ();
+
+
+
+
+
+
 
 
 
@@ -255,6 +277,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         }
 
     }
+
+
+
 
 
 
