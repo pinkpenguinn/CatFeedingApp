@@ -7,7 +7,10 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -15,26 +18,46 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class MapsActivity extends FragmentActivity  {
+public class MapsActivity extends FragmentActivity implements LocationListener {
 
     private GoogleMap mMap;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
+    private DatabaseReference reference;
+    private LocationManager manager;
+    private final int MIN_TIME = 1000;
+    private final int MIN_DISTANCE = 1;
+    Marker marker;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
+
+
+        reference = FirebaseDatabase.getInstance().getReference().child("User 1");
+
+        manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
+//
 
         client = LocationServices.getFusedLocationProviderClient(this);
 
@@ -49,19 +72,63 @@ public class MapsActivity extends FragmentActivity  {
                     44);
         }
 
+        getLocationUpdates();
+
+        readChanges ();
+
 
     }
 
+    private void readChanges() {
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    try {
+                        Locations location = dataSnapshot.getValue(Locations.class);
+                        if(location != null) {
+                            marker.setPosition(new LatLng(location.getLatitude(), location.getLongitude()));
+                            marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.paw));
 
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//
-//        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//    }
+
+                        }
+                    }catch(Exception e){
+                        Toast.makeText(MapsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void getLocationUpdates() {
+        if (manager != null) {
+            if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+                } else if (manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                    manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+
+                } else {
+                    Toast.makeText(this, "No Provider Available", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            else {
+                ActivityCompat.requestPermissions(MapsActivity.this, new String []{Manifest.permission.ACCESS_FINE_LOCATION},
+                        44);
+            }
+        }
+    }
+
+
+
+
 
     private void getCurrentLocation () {
         Task<Location> task = client.getLastLocation();
@@ -73,11 +140,14 @@ public class MapsActivity extends FragmentActivity  {
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
                             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                            MarkerOptions options = new MarkerOptions().position(latLng).title("You are here!");
+
 
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+                            googleMap.setMinZoomPreference(12);
+                            googleMap.getUiSettings().setZoomControlsEnabled(true);
+                            googleMap.getUiSettings().setAllGesturesEnabled(true);
 
-                            googleMap.addMarker(options);
+                            marker = googleMap.addMarker(new MarkerOptions().position(latLng).title("You are here!"));
 
                         }
                     });
@@ -95,5 +165,36 @@ public class MapsActivity extends FragmentActivity  {
                 getCurrentLocation();
             }
         }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        if (location != null) {
+            saveLocation(location);
+        }
+
+        else {
+            Toast.makeText(this, "Location not Detected", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    private void saveLocation (Location location) {
+        reference.setValue(location);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
     }
 }
