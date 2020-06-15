@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -31,7 +33,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MapsActivity extends FragmentActivity implements LocationListener, GoogleMap.OnMapLongClickListener {
+import java.io.IOException;
+import java.util.List;
+
+public class MapsActivity extends FragmentActivity implements LocationListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerDragListener {
 
     private GoogleMap mMap;
     FusedLocationProviderClient client;
@@ -41,6 +46,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     private final int MIN_TIME = 1000;
     private final int MIN_DISTANCE = 1;
     Marker marker;
+    private Geocoder geocoder;
 
 
     @Override
@@ -48,12 +54,12 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        FirebaseDatabase.getInstance().getReference().setValue("Please work");
-
 
         reference = FirebaseDatabase.getInstance().getReference().child("User 1");
 
         manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        geocoder = new Geocoder(MapsActivity.this);
 
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -65,8 +71,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
         if (ActivityCompat.checkSelfPermission(MapsActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
-            getLocationUpdates();
-            readChanges ();
+
 
         }
 
@@ -74,6 +79,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
             ActivityCompat.requestPermissions(MapsActivity.this, new String []{Manifest.permission.ACCESS_FINE_LOCATION},
                     44);
         }
+
+        getLocationUpdates();
+        readChanges ();
 
 
 
@@ -152,6 +160,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
                             marker = mMap.addMarker(new MarkerOptions().position(latLng).title("You are here!"));
 
                             mMap.setOnMapLongClickListener(MapsActivity.this);
+                            mMap.setOnMarkerDragListener(MapsActivity.this);
 
                         }
                     });
@@ -204,7 +213,49 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
 
     @Override
     public void onMapLongClick(LatLng latLng) {
-        mMap.addMarker(new MarkerOptions().position(latLng));
+
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1 );
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                String streetAddress = address.getAddressLine(0);
+                mMap.addMarker(new MarkerOptions().position(latLng).title(streetAddress).draggable(true).icon(BitmapDescriptorFactory.fromResource(R.drawable.food)));
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        LatLng latLng = marker.getPosition();
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1 );
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                String streetAddress = address.getAddressLine(0);
+                marker.setTitle(streetAddress);
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
 }
