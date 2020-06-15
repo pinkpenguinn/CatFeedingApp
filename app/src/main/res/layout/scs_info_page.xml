@@ -81,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Instructions"
-        android:text="Swipe Right to Record New Cases and Take Part"
+        android:text="Swipe Right to learn more about how to identify unsterilised cats"
         android:paddingTop="5dp"
         android:layout_margin="10dp"
         android:textStyle="bold"
