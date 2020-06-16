@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         logOutButton = findViewById(R.id.logOutButton);
         goToMapView = findViewById(R.id.mapView);
         scsMainPage = findViewById(R.id.scsButton);
+        toPhotoAlbum = findViewById(R.id.photoAlbum);
 
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
