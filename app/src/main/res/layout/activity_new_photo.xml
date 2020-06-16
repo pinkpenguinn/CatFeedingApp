@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="vertical">
+    tools:context=".newPhotoActivity">
+
+    <ImageView
+        android:id="@+id/new_image"
+        android:src="@drawable/cat_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <EditText
+        android:id="@+id/add_photo_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:onClick="openCamera"
+        android:text="@string/camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/new_memory_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="cancel"
+            android:text="Cancel"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:onClick="save"
+            android:text="Save"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

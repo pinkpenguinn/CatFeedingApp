@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,4 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".PhotoActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <GridView
+        android:id="@+id/photo_activity_grid_view"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="5dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+    </GridView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_photo_FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:onClick="addNewMemory"
+        android:src="@drawable/icon_plus"
+        android:padding="15dp"
+
+        app:elevation="5dp"
+        app:fabSize="normal" />
+
+
+</FrameLayout>

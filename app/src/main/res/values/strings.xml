@@ -10,4 +10,6 @@
     <string name="tab_text_1">General Information</string>
     <string name="tab_text_2">View Notes</string>
     <string name="tab_text_3">Add Notes</string>
+    <string name="addPhotoInstructions">Add photos by clicking the button</string>
+    <string name="camera">Add Photo From Camera</string>
 </resources>
