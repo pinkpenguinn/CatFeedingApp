@@ -7,6 +7,7 @@
     <string name="already_have_an_account_sign_in_here">Already have an account? Sign in here!</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_scs">scsActivity</string>
+    <string name="hintForCase">Full name \n\nNRIC/FIN \n\nContact Number \n\nNumber of Cats \n\nSex of the Cats \n\nArea where Cat was Spotted </string>
     <string name="tab_text_1">General Information</string>
     <string name="tab_text_2">More Information</string>
     <string name="tab_text_3">Add Cases</string>

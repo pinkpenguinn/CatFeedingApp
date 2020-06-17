@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:ems="10"
         android:gravity="top|left"
+        android:hint="@string/hintForCase"
         android:inputType="textMultiLine" />
 
 </RelativeLayout>

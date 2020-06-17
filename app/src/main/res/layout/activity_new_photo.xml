@@ -21,7 +21,7 @@
 
     <Button
         android:onClick="openCamera"
-        android:text="@string/camera"
+        android:text="Add photo from camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
