@@ -58,6 +58,11 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     Marker marker;
     private Geocoder geocoder;
 
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private ShakeDetector shakeDetector;
+
+
 
 
 
@@ -95,6 +100,22 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
             ActivityCompat.requestPermissions(MapsActivity.this, new String []{Manifest.permission.ACCESS_FINE_LOCATION},
                     44);
         }
+
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        shakeDetector = new ShakeDetector();
+        shakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+            @Override
+            public void onShake(int count) {
+                mMap.clear();
+                Toast.makeText(MapsActivity.this, "Shake!", Toast.LENGTH_SHORT).show();
+                getCurrentLocation();
+
+
+            }
+        });
 
 
 
@@ -174,7 +195,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
 
 
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-                            mMap.setMinZoomPreference(12);
+                            mMap.setMinZoomPreference(15);
                             mMap.getUiSettings().setZoomControlsEnabled(true);
                             mMap.getUiSettings().setAllGesturesEnabled(true);
 
@@ -278,6 +299,20 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(shakeDetector,
+                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        sensorManager.unregisterListener(shakeDetector);
+        super.onPause();
     }
 
 

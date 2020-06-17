@@ -77,7 +77,7 @@
                     android:text="Stray Cat Sterilisation Programme"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/colorPrimaryPink"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
                     android:text="PHOTO ALBUM"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/colorPrimaryPink"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
                     android:text="Log Out"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/colorPrimaryPink"
                     />
                 <TextView
                     android:layout_width="wrap_content"
