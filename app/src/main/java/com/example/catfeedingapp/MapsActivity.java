@@ -96,8 +96,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
                     44);
         }
 
-        getLocationUpdates();
-        readChanges ();
+
 
 
 
@@ -186,6 +185,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
 
                         }
                     });
+
+                    getLocationUpdates();
+                    readChanges ();
 
 
                 }
