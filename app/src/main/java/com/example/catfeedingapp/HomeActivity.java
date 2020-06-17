@@ -14,9 +14,9 @@ public class HomeActivity extends AppCompatActivity {
     Button goToMapView;
     Button scsMainPage;
     Button toPhotoAlbum;
-    FirebaseAuth firebaseAuthorization;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private boolean mLocationPositionAccessable = false;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

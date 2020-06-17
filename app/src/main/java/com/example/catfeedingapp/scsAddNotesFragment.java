@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +27,7 @@ public class scsAddNotesFragment extends Fragment {
     private ListView listView;
     static ArrayList<String> cases = new ArrayList<>();
     static ArrayAdapter arrayAdapter;
-    FloatingActionButton fab;
+    private FloatingActionButton fab;
 
     @Nullable
     @Override

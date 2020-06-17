@@ -1,6 +1,6 @@
 package com.example.catfeedingapp;
 
-import android.location.Location;
+
 
 public class Locations {
 

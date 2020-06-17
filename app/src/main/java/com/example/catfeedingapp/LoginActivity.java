@@ -3,7 +3,7 @@ package com.example.catfeedingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(i);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Please log in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, " ", Toast.LENGTH_SHORT).show();
                 }
 
             }
