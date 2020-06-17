@@ -66,6 +66,11 @@ public class photoDbhelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor getData (String sql) {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery(sql, null);
+    }
+
 
 
 

@@ -24,6 +24,7 @@ public class newPhotoActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST_CODE = 200;
     private ImageView newImageView;
     private EditText editText;
+    private photoDbhelper catDB;
 
 
     @Override
@@ -48,6 +49,7 @@ public class newPhotoActivity extends AppCompatActivity {
 
         Bitmap image = ((BitmapDrawable)newImageView.getDrawable()).getBitmap();
         photo newPhoto = new photo(editText.getText().toString(), image);
+
 
         new photoDbhelper(this).addMemory(newPhoto);
 
