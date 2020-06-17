@@ -8,8 +8,16 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_scs">scsActivity</string>
     <string name="tab_text_1">General Information</string>
-    <string name="tab_text_2">View Notes</string>
-    <string name="tab_text_3">Add Notes</string>
-    <string name="addPhotoInstructions">Add photos by clicking the button</string>
-    <string name="camera">Add Photo From Camera</string>
+    <string name="tab_text_2">More Information</string>
+    <string name="tab_text_3">Add Cases</string>
+    <string name="IntroToSCS"><![CDATA[The Stray Cat Sterilisation Programme is a new collaborative venture between the SPCA and AVS (Animal & Veterinary Service) which aims to further reduce the number of stray cats in Housing and Development Board (HDB) estates]]></string>
+    <string name="InfoForFeeders">Community cat feeders can contact the SPCA at <b>62875355</b> (extension 14) to make an appointment.
+        \n\n
+        Please have the following information ready when you call:
+        \n\n <b>Full name</b>, <b>address</b>, <b>NRIC/ FIN</b> number and <b>contact number</b> of community caregiver
+        \n\n <b>Number</b> of cats needing to be sterilised
+        \n\n The sex of each cat
+        \n\n The <b>area (neighbourhood)</b> where the cat is from</string>
+    <string name="IntroToSterilisation">A clear indication of a sterilized cat is the distinctive ear that is squared off instead of pointy. Ear-tipping involves surgically removing a small portion of one of a cat’s ears while the cat is under anesthesia for spay or neuter surgery. It is the universally accepted way to signify that a community cat has been spayed or neutered, which means no new kittens will be born, and that’s a good thing. Ear-tipping is extremely safe and is performed while the cat is already anesthetized for spay or neuter surgery. There is little or no bleeding involved, and it is not painful to the cat.</string>
+    <string name="importance">Sterilizing your cat helps curb the rampant overpopulation of cats and prevent unwanted mating. If more cats were sterilized, we could put an end to abandonment as well as unfair euthanizing and unhealthy strays. For females, sterilization prevents tumors from appearing in the mammary gland. It also helps avoid infections and tumors in the uterus and ovaries which can manifest later in life.</string>
 </resources>
