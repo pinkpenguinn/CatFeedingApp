@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 public class PhotoActivity extends AppCompatActivity {
     private photoDbhelper photoDbhelper;
     private GridView gridView;
+    private photoAdapter photoAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +35,14 @@ public class PhotoActivity extends AppCompatActivity {
 
         gridView = findViewById(R.id.photo_activity_grid_view);
         photoDbhelper = new photoDbhelper(this);
-        gridView.setAdapter(new photoAdapter(this, this.photoDbhelper.readAllMemories(), false));
+        photoAdapter = new photoAdapter(this, this.photoDbhelper.readAllMemories(), false);
+        gridView.setAdapter(photoAdapter);
+//        gridView.setAdapter(new photoAdapter(this, this.photoDbhelper.readAllMemories(), false));
+
 
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+            public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
                 CharSequence[] item = {"Delete Photo"};
                 AlertDialog.Builder dialog = new AlertDialog.Builder(PhotoActivity.this);
 
@@ -44,7 +51,19 @@ public class PhotoActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         if(which == 0) {
 
-                            deleteWarningDialog();
+                            Cursor cursor = photoDbhelper.getData("SELECT _id FROM memories");
+                            ArrayList<Long> IDList = new ArrayList<>();
+                            while(cursor.moveToNext()) {
+                                IDList.add(cursor.getLong(0));
+                            }
+
+                            deleteWarningDialog(IDList.get(position));
+
+
+
+
+
+
                         }
 
                     }
@@ -68,12 +87,20 @@ public class PhotoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void deleteWarningDialog () {
+    private void deleteWarningDialog (final long photoID) {
         AlertDialog.Builder warningDialog = new AlertDialog.Builder(PhotoActivity.this);
         warningDialog.setMessage("Are you sure you want to delete this image?");
         warningDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                try {
+                    photoDbhelper.deleteData(photoID);
+
+                } catch (Exception e) {
+                    Log.e("Error Deleting", e.getMessage());
+                }
+
+
 
             }
         });
@@ -86,6 +113,7 @@ public class PhotoActivity extends AppCompatActivity {
         });
 
         warningDialog.show();
+
     }
 
 

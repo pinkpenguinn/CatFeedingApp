@@ -24,7 +24,7 @@ public class newPhotoActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST_CODE = 200;
     private ImageView newImageView;
     private EditText editText;
-    private photoDbhelper catDB;
+
 
 
     @Override
