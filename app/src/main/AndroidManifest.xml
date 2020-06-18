@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.catfeedingapp">
-    
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
-    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true"/>
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="true" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -22,7 +25,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LoadScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,56 +44,63 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".newPhotoActivity"></activity>
+        <activity android:name=".newPhotoActivity" />
+        <activity android:name=".PhotoActivity">
 
-        <activity android:name=".PhotoActivity" >
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
 
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".scsActivity"
             android:label="@string/title_activity_scs"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".HomeActivity">
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".MainActivity" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".MainActivity">
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
-        <activity android:name=".CaseActivity"></activity>
+        <activity android:name=".CaseActivity" />
     </application>
 
 </manifest>
