@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.provider.ContactsContract;
 
 import androidx.annotation.Nullable;
@@ -64,6 +65,22 @@ public class photoDbhelper extends SQLiteOpenHelper {
 
         return db.insert(photoFormat.photoEntry.TABLE_NAME, null, values) != -1;
 
+    }
+
+    public Cursor getData (String sql) {
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery(sql, null);
+    }
+
+    public void deleteData(long _id){
+        SQLiteDatabase database  = getWritableDatabase();
+        String sql = "DELETE FROM memories WHERE _id = ?";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindLong(1, _id);
+
+        statement.execute();
+        database.close();
     }
 
 

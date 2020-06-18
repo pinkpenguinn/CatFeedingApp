@@ -25,6 +25,7 @@ public class newPhotoActivity extends AppCompatActivity {
     private EditText editText;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class newPhotoActivity extends AppCompatActivity {
 
         Bitmap image = ((BitmapDrawable)newImageView.getDrawable()).getBitmap();
         photo newPhoto = new photo(editText.getText().toString(), image);
+
 
         new photoDbhelper(this).addMemory(newPhoto);
 
