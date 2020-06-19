@@ -16,7 +16,7 @@ public class photo {
     private String title;
     private String image;
 
-    public static final int COLUMN_ID = 0;
+
     public static final int COLUMN_TITLE = 1;
     public static final int COLUMN_IMAGE = 2;
 

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScrollView02"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none" >
+
+    <RelativeLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+
+
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/mainheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="5dp"
+            android:text="How To Identify Unsterilised Cats?"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mainheader"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/IntroToSterilisation" />
+
+        <ImageView
+            android:id="@+id/EarTippedCatImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:paddingBottom="5dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/tippedcat" />
+
+        <TextView
+            android:id="@+id/importanceOfSterilisation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EarTippedCatImg"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/importance"
+            android:layout_margin="10dp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/importanceOfSterilisation"
+            android:text="Swipe Right to Add Cases Of Unsterilized Cats"
+            android:paddingTop="5dp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            />
+
+
+
+
+
+
+
+    </RelativeLayout>
+    ></ScrollView>
+

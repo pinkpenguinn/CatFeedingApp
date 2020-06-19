@@ -9,12 +9,13 @@
 
     <EditText
         android:id="@+id/LoginEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="301dp"
+        android:layout_height="81dp"
         android:layout_marginTop="316dp"
         android:layout_marginBottom="37dp"
         android:ems="10"
         android:hint="@string/email"
+        android:textSize="30sp"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/LoginPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,25 +25,28 @@
 
     <EditText
         android:id="@+id/LoginPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="282dp"
+        android:layout_height="75dp"
         android:layout_marginBottom="288dp"
         android:ems="10"
         android:hint="@string/password"
+        android:textSize="30sp"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginEmail" />
 
     <Button
         android:id="@+id/buttonSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="146dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="204dp"
-        android:text="Sign In"
         android:background="@color/mediumPink"
+        android:textSize="30sp"
+
+        android:text="Sign In"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -56,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="152dp"
         android:text="Do not have an Account? Register Here!"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

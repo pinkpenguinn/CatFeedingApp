@@ -54,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     private LocationManager manager;
     private final int MIN_TIME = 1000;
     private final int MIN_DISTANCE = 1;
-    Marker marker;
+    private Marker marker;
     private Geocoder geocoder;
 
     private SensorManager sensorManager;
@@ -161,6 +161,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
             if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+
                 } else if (manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                     manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
 

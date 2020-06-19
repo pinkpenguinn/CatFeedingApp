@@ -10,22 +10,22 @@
 
     <ImageView
         android:id="@+id/new_image"
-        android:src="@drawable/cat_placeholder"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/cat_placeholder" />
 
     <EditText
         android:id="@+id/add_photo_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="78dp" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="114dp"
         android:background="@color/colorPrimaryPink"
         android:onClick="openCamera"
-        android:text="Add photo from camera" />
+        android:text="Add photo from camera"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -35,19 +35,21 @@
         <Button
             android:id="@+id/new_memory_cancel"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@color/colorPrimaryPink"
             android:onClick="cancel"
             android:text="Cancel"
-            android:background="@color/colorPrimaryPink"
-            android:layout_height="wrap_content" />
+            android:textSize="24sp" />
 
         <Button
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
             android:layout_weight="1"
+            android:background="@color/colorPrimaryPink"
             android:onClick="save"
             android:text="Save"
-            android:background="@color/colorPrimaryPink"
-            android:layout_height="wrap_content" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 
