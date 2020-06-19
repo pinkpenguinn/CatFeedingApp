@@ -36,14 +36,17 @@ public class newPhotoActivity extends AppCompatActivity {
 
 
     }
-
+    // Method requests permission Camera access from the user and Opens up the Camera
     public void openCamera(View view) {
         Intent takePhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePhoto.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePhoto, CAMERA_REQUEST_CODE);
         }
     }
-
+    // The image in the ImageView newImageView is converted to a bitmap using the getBitmap() method
+    // A new instance of the object photo, named newPhoto, is created by passing in the title of the photo
+    // from the EditText field that accepts user input and by passing in the bitmap image
+    // The newPhoto object is then stored into the database by the addMemory() method in the photoDbhelper class
     public void save(View view) {
 
         Bitmap image = ((BitmapDrawable)newImageView.getDrawable()).getBitmap();
@@ -66,8 +69,8 @@ public class newPhotoActivity extends AppCompatActivity {
 
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            newImageView.setImageBitmap(imageBitmap);
+            Bitmap imageBitmap = (Bitmap) extras.get("data"); // gets image taken from camera and stores it to imageBitmap
+            newImageView.setImageBitmap(imageBitmap); // the image stored in imageBitmap is passed to the ImageView newImageView
         }
     }
 

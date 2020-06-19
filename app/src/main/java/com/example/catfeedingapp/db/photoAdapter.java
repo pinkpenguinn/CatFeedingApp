@@ -12,7 +12,7 @@ import com.example.catfeedingapp.R;
 import com.example.catfeedingapp.photomodel.photo;
 
 public class photoAdapter extends CursorAdapter {
-
+    //Constructor
     public photoAdapter(Context context, Cursor cursor, boolean autoRequery) {
         super(context, cursor, autoRequery);
     }
@@ -23,17 +23,17 @@ public class photoAdapter extends CursorAdapter {
         view.setTag(new ViewHolder(view));
         return view;
     }
-
+    // this method converts the image from string format to a bitmap format so that it is visibe as a image in the app
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         ViewHolder holder = (ViewHolder)view.getTag();
 
         photo Photo = new photo(cursor);
         holder.titleTextView.setText(Photo.getTitle());
-        holder.imageView.setImageBitmap(Photo.getImage());
+        holder.imageView.setImageBitmap(Photo.getImage()); // the getImage() method call the stringToBitMap() method
 
     }
-
+   // This class creates the image view that hold the photo
     private class ViewHolder {
         final ImageView imageView;
         final TextView titleTextView;
