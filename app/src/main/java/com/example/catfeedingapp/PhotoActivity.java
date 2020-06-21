@@ -97,7 +97,7 @@ public class PhotoActivity extends AppCompatActivity {
                 try {
                     photoDbhelper.deleteData(photoID); // calls the deleteData method from photoDbhelper, passing the
                                                        // unique ID of the photo clicked as a parameter
-                    photoAdapter.notifyDataSetChanged(); // updates the gridView to relect the deletion
+                    photoAdapter.notifyDataSetChanged(); // updates the gridView to reflect the deletion
 
 
                 } catch (Exception e) {

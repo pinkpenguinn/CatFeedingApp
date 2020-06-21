@@ -34,7 +34,7 @@ public class photo {
     //The output baos is stored in a byte array named b
     //b is passed to the Base64.encodeToString method which converts the byte data and returns a String
     //This String represents, the String format of the bitmap passed in the method
-    private static String bitmapToString(Bitmap bitmap) {
+    public static String bitmapToString(Bitmap bitmap) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] b = baos.toByteArray();
@@ -69,7 +69,7 @@ public class photo {
     }
    // This method accepts a String parameter (String formatted Image) and converts it back into a bitmap
    // The String is decoded back into a byte array and then converted back to a bitmap.
-    private static Bitmap stringToBitmap(String encodedString) {
+    public static Bitmap stringToBitmap(String encodedString) {
         try {
             byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
             return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
@@ -79,7 +79,7 @@ public class photo {
         }
     }
 
-    public Bitmap getImage() {   // returns image as a bitmap
+    public Bitmap getImage() {   // returns string as a bitmap
         return stringToBitmap(this.image);
     }
 

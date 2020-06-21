@@ -53,12 +53,12 @@
         <activity android:name=".newPhotoActivity" />
         <activity android:name=".PhotoActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
 
         </activity>
         <activity
@@ -75,15 +75,23 @@
         <activity
             android:name=".scsActivity"
             android:label="@string/title_activity_scs"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+
         <activity android:name=".HomeActivity">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
 
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
         </activity>
         <activity android:name=".MainActivity">
 
@@ -95,11 +103,11 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".LoginActivity">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".CaseActivity" />

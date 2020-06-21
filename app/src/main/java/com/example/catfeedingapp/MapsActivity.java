@@ -109,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
             shakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
                 @Override
                 public void onShake(int count) {
-                    mMap.clear();
+                    mMap.clear(); // markers are cleared upon detection of shake event
                     Toast.makeText(MapsActivity.this, "Shake!", Toast.LENGTH_SHORT).show();
                     getCurrentLocation();
 
@@ -309,7 +309,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume() {   // resumes the sensor when its being used
         super.onResume();
         sensorManager.registerListener(shakeDetector,
                 sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
@@ -318,7 +318,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener, 
 
     @Override
     protected void onPause() {
-        sensorManager.unregisterListener(shakeDetector);
+        sensorManager.unregisterListener(shakeDetector); // suspends the sensor when not in use
         super.onPause();
     }
 

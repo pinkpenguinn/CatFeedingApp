@@ -36,17 +36,17 @@ public class MainActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailAddress = emailID.getText().toString();
-                String loginPassword = password.getText().toString();
+                String emailAddress = emailID.getText().toString();  // gets user inputted data on email address field
+                String loginPassword = password.getText().toString(); // gets user inputted data on password field
 
                 if(emailAddress.isEmpty()) {
-                    emailID.setError("Please enter your Email Address");
-                    emailID.requestFocus();
+                    emailID.setError("Please enter your Email Address");  // if field is empty, error msg is displayed
+                    emailID.requestFocus();  // attention is directed towards the email field
                 }
 
                 else if (loginPassword.isEmpty()) {
-                    password.setError("Please enter a password");
-                    password.requestFocus();
+                    password.setError("Please enter a password");  // if field is empty, error msg is displayed
+                    password.requestFocus();  // attention directed towards the password field
                 }
 
                 else if (!emailAddress.isEmpty() && !loginPassword.isEmpty() ) {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         );
-
+        // click link to go to log in page
         linkToSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

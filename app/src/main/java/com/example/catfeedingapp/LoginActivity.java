@@ -56,13 +56,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String emailAddress = emailID.getText().toString();
-                String loginPassword = password.getText().toString();
+                String emailAddress = emailID.getText().toString();   // email address is retrieved from edit text
+                String loginPassword = password.getText().toString(); // password is retrieved from edit text
 
                 if (emailAddress.isEmpty()) {
-                    emailID.setError("Please enter your Email Address");
+                    emailID.setError("Please enter your Email Address");    // Error msg if email field is empty
                     emailID.requestFocus();
-                } else if (loginPassword.isEmpty()) {
+                } else if (loginPassword.isEmpty()) {                       // Error msg if password field is empty
                     password.setError("Please enter a password");
                     password.requestFocus();
                 } else if (!emailAddress.isEmpty() && !loginPassword.isEmpty()) {
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         });
-
+        // link to register page
         linkToSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
